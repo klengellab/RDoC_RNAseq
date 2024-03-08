@@ -12,8 +12,10 @@ Data and analysis
 # Raw data: 
 RNAseq fastq files can be accessed through GEO accession GSE261050
 # Processed data: 
-tximport-counts3.csv: raw gene count matrix of all samples.  
-AD_RNAseq_metadata3.xlsx: metadata of all samples.  
+tximport-counts3.csv: raw gene count matrix of all samples  
+AD_RNAseq_metadata3.xlsx: metadata of all samples  
 RDoC.csv: RDoC scores of five domains for each individual, for detailed information about each domain, please refer to NIMH website: https://www.nimh.nih.gov/research/research-funded-by-nimh/rdoc/definitions-of-the-rdoc-domains-and-constructs.  
 # Analysis: 
-The main analysis normalization, differential expression analysis and enrichment analysis is performed in the RNAseq_analayis.R and the deconvolution of the RNAseq data with MuSiC is performed in the Deconvolution_MuSiC.R. Additionally, for the reviewer we also explored other Deseq2 models and the code is available for those models in RNAseq_analysis_multiple_DEseq2_models.R. The functions that are used throughout the analysis can be found in the functions.R script
+RNAseq_RDoC.R: main analysis including data preprocessing, PCA analysis, SVA analysis, differential gene analysis based on a case-ctrl group comparison design and dimensional regression analysis over each domain of RDoC scores using R pachage ImpulseDE2.  
+plot_PCA_deseq2_modified.R: additional customized function required in PCA analysis part
+
