@@ -1,5 +1,4 @@
 rm(list =ls())
-
 library("corrplot")
 library('apeglm')
 library(DESeq2)
@@ -16,44 +15,6 @@ library(sva)
 library(tibble)
 library(UpSetR)
 options(ggrepel.max.overlaps=Inf)
-
-
-# library("AnnotationDbi")
-# 
-# library(circlize)
-# library(ComplexHeatmap)
-# library(org.Hs.eg.db)
-# library(GO.db)
-# library(DOSE)
-# library(GOSemSim)
-# library(enrichplot)
-# library(clusterProfiler)
-# 
-# library(gdata)
-# library(ggalluvial)
-# library(ggbeeswarm)
-# library(ggExtra) 
-# library(ggpubr)
-# 
-# library("ggsci")
-# library(ggtext)
-# library(RRHO2)
-# library('psych')
-# 
-# library("scales")
-# 
-# 
-# library("vsn")
-# library("cowplot")
-# library("RColorBrewer")
-# library(RVA)
-# library("ReportingTools")
-
-
-
-# 需要AD_RNAseq_metadata3.xlsx，RDoC.csv，tximport-counts3.csv
-# plot_PCA_deseq2_modified.R
-
 
 # read gene count matrix
 file_path = 'E:/project/sabina/result/'
@@ -171,7 +132,6 @@ social2 <- cut(metadata_final_rdoc$social,breaks = seq(0,0.8,by=0.1),
 
 metadata_final_rdoc<-cbind(metadata_final_rdoc,rdoc2,positive2,negative2,arousal2,social2)
 
-
 metadata_final_rdoc$rdoc2 <- as.factor(metadata_final_rdoc$rdoc2)
 metadata_final_rdoc$positive2 <- as.factor(metadata_final_rdoc$positive2)
 metadata_final_rdoc$negative2 <- as.factor(metadata_final_rdoc$negative2)
@@ -226,7 +186,6 @@ data_final0_rdoc <-data_final0[,order(match(
 data_final0_rdoc <- data_final0_rdoc[
   ,1:nrow(metadata_final_rdoc)]
 
-
 # PCA analysis
 dds <- DESeqDataSetFromMatrix(data_final_rdoc,
                                    colData = metadata_final_rdoc,
@@ -275,7 +234,6 @@ ggplot(pca_PCs, aes(PC1, PC2, color=Sequence_Batch, shape=Sequence_Batch)) +
   labs(
     x = paste0("PC1"), 
     y = paste0("PC2"))
-
 
 # correlation analysis
 metadata_final0 <- metadata_final_rdoc
