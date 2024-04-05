@@ -256,7 +256,7 @@ test <- res1$p
 test2 <- as.vector(test)
 test3 <- p.adjust(test2,method = 'fdr')
 test3 <- as.matrix(test3)
-test3 <- matrix(test3,nrow = nrow(test),byrow = T)
+test3 <- matrix(test3,nrow = nrow(test),byrow = F)
 rownames(test3) <- rownames(test)
 colnames(test3) <- colnames(test)
 res1$p <- test3
